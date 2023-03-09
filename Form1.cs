@@ -1,14 +1,14 @@
 using System.Text;
 
-namespace SCR_Ausleser_Array
+namespace Savegame-Reader
 {
     public partial class Form1 : Form
     {
         byte[] configFile; // GESAMTE CONFIG FILE
 
         /*
-                    In Spielständen (GFX\GAME?.GAM) ist das Geld ab Offset 198H gespeichert;
-                    für ein Taschengeld von 1.879.048.191 Dollar tragen Sie FF FF FF 6F ein.
+                    In SpielstÃ¤nden (GFX\GAME?.GAM) ist das Geld ab Offset 198H gespeichert;
+                    fÃ¼r ein Taschengeld von 1.879.048.191 Dollar tragen Sie FF FF FF 6F ein.
 
                     Weitere Offsets:
                     Offset	Inhalt	                Empfehlung
@@ -87,7 +87,7 @@ namespace SCR_Ausleser_Array
             // Spielernamen auslesen
             for (int i = 0; i < configFile[20]; i++)
             {
-                returnString += Convert.ToChar(configFile[21 + i]);  // FÜLLT DAS Jahr ARRAY MIT EXAKT 2 BYTE START BEI INDEX
+                returnString += Convert.ToChar(configFile[21 + i]);  // FÃœLLT DAS Jahr ARRAY MIT EXAKT 2 BYTE START BEI INDEX
             }
             return returnString;
         }
@@ -98,7 +98,7 @@ namespace SCR_Ausleser_Array
             // Firmennamen auslesen
             for (int i = 0; i < configFile[36]; i++)
             {
-                returnString += Convert.ToChar(configFile[37 + i]);  // FÜLLT DAS Jahr ARRAY MIT EXAKT 2 BYTE START BEI INDEX
+                returnString += Convert.ToChar(configFile[37 + i]);  // FÃœLLT DAS Jahr ARRAY MIT EXAKT 2 BYTE START BEI INDEX
             }
             return returnString;
         }
@@ -148,7 +148,7 @@ namespace SCR_Ausleser_Array
             }
             else if (index == 3)
             {
-                returnString = ("März");
+                returnString = ("MÃ¤rz");
             }
             else if (index == 4)
             {
@@ -210,7 +210,7 @@ namespace SCR_Ausleser_Array
             }
             else if (index == 6)
             {
-                returnString = "Österreich";
+                returnString = "Ã–sterreich";
             }
 
 
@@ -226,7 +226,7 @@ namespace SCR_Ausleser_Array
             }
 
             returnString = returnString.Replace(" ", ""); // ERSETZT ALLE LEERZEICHEN IM STRING
-            returnString = int.Parse(returnString, System.Globalization.NumberStyles.HexNumber).ToString(); // MACHT AUS DEN 2 BYTE EINEN INT UND DANACH EINEN STRING FÜR DIE AUSGABE
+            returnString = int.Parse(returnString, System.Globalization.NumberStyles.HexNumber).ToString(); // MACHT AUS DEN 2 BYTE EINEN INT UND DANACH EINEN STRING FÃœR DIE AUSGABE
 
             return returnString;
         }
@@ -268,10 +268,10 @@ if (x is TextBox)
             /*
             if (textBox33.Modified == true)
             {
-                // Länge des Namens schreiben
+                // LÃ¤nge des Namens schreiben
                 configFile[position - 1] = Convert.ToByte(textBox33.TextLength);
 
-                // Namen mit _ überschreiben (Ist original im Spiel auch so)
+                // Namen mit _ Ã¼berschreiben (Ist original im Spiel auch so)
 
                 int z = position;
                 char[] yz = ("_______________".ToCharArray());
@@ -288,7 +288,7 @@ if (x is TextBox)
                     configFile[y] = (b); y++;
                 }
                 //SaveByteArrayToFileWithBinaryWriter(configFile, Program.SaveName);
-                //MessageBox.Show("Änderungen in " + Program.DateiName + " gespeichert.");
+                //MessageBox.Show("Ã„nderungen in " + Program.DateiName + " gespeichert.");
             
                 */
             //var bTextBox = (TextBox) this.Controls.Find("textBox"+ TBnummer.ToString(), true);
@@ -301,14 +301,14 @@ if (x is TextBox)
 
 
             MessageBox.Show("Die Position an welche HEX der Eintrag geschriebne werden soll: " + position.ToString());
-            MessageBox.Show("Die Länge des zu schreibenen Eintrages ist: " + savelaenge.ToString());
-            MessageBox.Show("Die veränderte Textbox ist die: " + "TextBox" + TBnummer.ToString());
-            MessageBox.Show("Soll die länge der TextBox mit angespeichert werden? " + YN.ToString());
-            MessageBox.Show("Die Länge des Eintrags in der Textbox ist: " + booltrue.ToString());
+            MessageBox.Show("Die LÃ¤nge des zu schreibenen Eintrages ist: " + savelaenge.ToString());
+            MessageBox.Show("Die verÃ¤nderte Textbox ist die: " + "TextBox" + TBnummer.ToString());
+            MessageBox.Show("Soll die lÃ¤nge der TextBox mit angespeichert werden? " + YN.ToString());
+            MessageBox.Show("Die LÃ¤nge des Eintrags in der Textbox ist: " + booltrue.ToString());
             
             if (YN == true)
             {
-                MessageBox.Show("Der Wert für die Länge des Inhalts wird an Position: " + (position - 1) + " gespeichert.");
+                MessageBox.Show("Der Wert fÃ¼r die LÃ¤nge des Inhalts wird an Position: " + (position - 1) + " gespeichert.");
             }
 
         }
@@ -357,16 +357,16 @@ if (x is TextBox)
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Für eine Funktion sind folgende Daten notwendig:
-            // Int (Position an die die Textbox geschrieben werden muss) Beispiel: 20 für die länge des Namens und 21 für den Namen, Rest wird mit _ aufgefüllt
-            // Int für die TextBox Nummer  --> geht nicht. Am besten alle Textboxen abspeichern.
-            // Bool Abfrage, ob die Länge eines Eintrags gespeichert werden muss
-            // int länge des Wertes, 0 Falls Bool false
+            // FÃ¼r eine Funktion sind folgende Daten notwendig:
+            // Int (Position an die die Textbox geschrieben werden muss) Beispiel: 20 fÃ¼r die lÃ¤nge des Namens und 21 fÃ¼r den Namen, Rest wird mit _ aufgefÃ¼llt
+            // Int fÃ¼r die TextBox Nummer  --> geht nicht. Am besten alle Textboxen abspeichern.
+            // Bool Abfrage, ob die LÃ¤nge eines Eintrags gespeichert werden muss
+            // int lÃ¤nge des Wertes, 0 Falls Bool false
 
-             // Länge des Namens schreiben
+             // LÃ¤nge des Namens schreiben
              configFile[20] = Convert.ToByte(textBox33.TextLength);
 
-             // Namen mit _ überschreiben (Ist original im Spiel auch so)
+             // Namen mit _ Ã¼berschreiben (Ist original im Spiel auch so)
 
              int z = 21;
              char[] yz = ("_______________".ToCharArray());
@@ -383,7 +383,7 @@ if (x is TextBox)
                  configFile[y] = (b);y++;
              }
              SaveByteArrayToFileWithBinaryWriter(configFile, Program.SaveName);
-             MessageBox.Show("Änderungen in " + Program.DateiName + " gespeichert.");
+             MessageBox.Show("Ã„nderungen in " + Program.DateiName + " gespeichert.");
 
              //saveChanges(21, 16, 33, true, 9);
             
