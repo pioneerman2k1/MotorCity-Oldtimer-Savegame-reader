@@ -1,4 +1,4 @@
-﻿namespace SCR_Ausleser_Array
+﻿namespace Savegame-Reader
 {
     partial class Form1
     {
