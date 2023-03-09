@@ -7,3 +7,5 @@ The game.stc file is the standard file for the savegames. The game1.gam for exam
 
 I am working on other parts for the Project.
 If you are interested in the Project and want to help me out, just write to me.
+
+P.S. at this point the Project is in german language. I will translate it as soon as possible.
