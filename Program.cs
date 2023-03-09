@@ -1,4 +1,4 @@
-namespace SCR_Ausleser_Array
+namespace Savegame-Reader
 {
     internal static class Program
     {
@@ -31,13 +31,13 @@ namespace SCR_Ausleser_Array
                 DateiName = openFileDialog.SafeFileName;
                 SaveName = openFileDialog.FileName;
 
-                return readFile; // RÜCKGABE DES BYTE ARRAYS
+                return readFile; // RÃœCKGABE DES BYTE ARRAYS
             
             }
 
         }
 
-        [STAThreadAttribute] // WICHTIG FÜR OPEN DIALOG
+        [STAThreadAttribute] // WICHTIG FÃœR OPEN DIALOG
         static void Main()
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
