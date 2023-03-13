@@ -230,18 +230,6 @@ namespace SCR_Ausleser_Array
 
             return returnString;
         }
-        private bool IsAnyTextBoxModified(Object sender , EventArgs e)
-        {
-            foreach (TextBox tb in this.Controls.OfType<TextBox>())
-            {
-                if (tb.Modified)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private void saveChanges(int position, int savelaenge, int TBnummer, bool YN, int booltrue)
         {
 
@@ -353,6 +341,7 @@ if (x is TextBox)
             configFile = Program.read_file_bytearray(); // LESE CONFIG FILE
             set_Text_data();
             this.Text = ("Dateien als Array auslesen - " + Program.DateiName);
+            button1.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -385,10 +374,34 @@ if (x is TextBox)
              SaveByteArrayToFileWithBinaryWriter(configFile, Program.SaveName);
              MessageBox.Show("Änderungen in " + Program.DateiName + " gespeichert.");
 
-             //saveChanges(21, 16, 33, true, 9);
-            
+            //saveChanges(21, 16, 33, true, 9);
+            button1.Enabled = false;
 
         }
 
+        private void textBox33_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+        }
+
+        private void textBox34_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+        }
+
+        private void textBox37_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+        }
+
+        private void textBox38_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+        }
+
+        private void textBox39_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
+        }
     }
 }
